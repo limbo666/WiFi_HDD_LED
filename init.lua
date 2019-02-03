@@ -7,7 +7,9 @@ print("WiFi LED "..ModuleID.." is starting up")
 BroadcastMyIP=1 --Default is set to 1 to broadcast until connection
 --###########################################
 --Set up WiFi
-wifi.sta.config {ssid="Toolz", pwd="Gorillaz"}
+wifi.setmode(wifi.STATION) 
+wifi.sta.autoconnect(1) station_cfg={} station_cfg.ssid="YourSSID" station_cfg.pwd="YourPASS" station_cfg.save=true 
+wifi.sta.config(station_cfg) wifi.sta.connect()
 --###########################################
 tmr.alarm(0, 1000, 1, function() -- check every second if the IP address is set by the DHCP server
 myip=wifi.sta.getip()
