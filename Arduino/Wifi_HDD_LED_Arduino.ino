@@ -6,7 +6,7 @@
 #include <WiFiUdp.h>
 const char* ssid     = "YOURSSID";
 const char* pw = "YOURPASS";
-
+int LedPin = 2;
 String ModuleID = "AI-9855"; //used to identify the LED if there are multiple on the network
 char data[200] = {};
 int packetsize = 0;
@@ -17,8 +17,8 @@ int BroadcastMyIP = 1 ;
 WiFiUDP Server;
 
 void setup() {
-  pinMode(13, OUTPUT);
-  digitalWrite(13, HIGH);       // sets the digital pin 13 on
+  pinMode(LedPin, OUTPUT);
+  digitalWrite(LedPin, HIGH);       // sets the digital pin LedPin on
   Serial.begin(115200);
   Serial.println();
   Serial.printf("Connecting to %s ", ssid);
@@ -37,7 +37,7 @@ void setup() {
   Serial.print(  UDPServerPort);
   Serial.println();
 
-  digitalWrite(13, LOW);        // sets the digital pin 13 off
+  digitalWrite(LedPin, LOW);        // sets the digital pin LedPin off
 
 }
 
@@ -85,13 +85,13 @@ void loop() {
     //  Serial.println();
     if (receiveddata == "ON2")
     {
-      digitalWrite(13, HIGH);       // sets the digital pin 13 on
+      digitalWrite(LedPin, HIGH);       // sets the digital pin 13 on
       delay(10);                  // waits for a second
       BroadcastMyIP = 0;
     }
     else if (receiveddata == "OFF2")
     {
-      digitalWrite(13, LOW);        // sets the digital pin 13 off
+      digitalWrite(LedPin, LOW);        // sets the digital pin 13 off
       delay(10);                  // waits for a second
       BroadcastMyIP = 0;
     }
