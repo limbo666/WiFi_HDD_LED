@@ -20,6 +20,7 @@ For the hardware side (this project) a step by step guide is available on **Inst
 
 #### Communication
 The communication is based on UDP protocol over WiFi
+
 ![Communication](https://github.com/limbo666/WiFi_HDD_LED/blob/master/Images/communication.png)
 
 #### Circuit
